@@ -1,0 +1,17 @@
+{
+    "scripts": {
+        "start": "run-p start:webpack start:tsc",
+        "start:webpack": "webpack-dev-server --entry ./dependencies.js --watch -d --output-library __deps__ --library-target globalThis --output ./es/dependencies.js --history-api-fallback --content-base ./es/ --watch-content-base --liveReload --open",
+        "start:tsc": "ttsc -p tsconfig.json --watch"
+    },
+    "devDependencies": {
+        "@magic-works/ttypescript-browser-like-import-transformer": "latest",
+        "npm-run-all": "latest",
+        "ts-node": "latest",
+        "ttypescript": "latest",
+        "typescript": "latest",
+        "webpack": "latest",
+        "webpack-cli": "latest",
+        "webpack-dev-server": "latest"
+    }
+}
