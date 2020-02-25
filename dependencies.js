@@ -18,9 +18,11 @@ export function load(path) {
     if (a) return a
     const b = globalThis[path]
     if (b) return b
-    console.error(`[Missing dependency]
-Please add the dependency '${path}' to /dependencies.js
-Or add a UMD version (https://duckduckgo.com/?q=javascript+library+cdn+${encodeURIComponent(path)}) to "es/index.html"`)
+    console.error(`[Missing dependency] ${path}:
+It's recommend to add a UMD minified version of the dependency (https://duckduckgo.com/?q=javascript+library+cdn+${encodeURIComponent(
+        path
+    )} ) to "es/index.html"
+You can also add it to /dependencies.js`)
     return undefined
 }
 //#endregion
