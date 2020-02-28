@@ -3,7 +3,7 @@
         "start": "run-p start:webpack start:tsc",
         "build": "run-p build:webpack build:tsc",
         "start:webpack": "webpack-dev-server --entry ./dependencies.js --watch -d --output-library __deps__ --library-target globalThis --output ./es/dependencies.js --history-api-fallback --content-base ./es/ --watch-content-base --liveReload --open",
-        "build:webpack": "yarn webpack --entry ./dependencies.js -p --output-library __deps__ --library-target globalThis --output ./es/dependencies.js",
+        "build:webpack": "webpack --entry ./dependencies.js -p --output-library __deps__ --library-target globalThis --output ./es/dependencies.js",
         "start:tsc": "ttsc -p tsconfig.json --watch",
         "build:tsc": "ttsc -p tsconfig.json"
     },
