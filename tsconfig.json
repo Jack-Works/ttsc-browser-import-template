@@ -6,10 +6,12 @@
                 "transform": "@magic-works/ttypescript-browser-like-import-transformer",
                 "after": true,
                 "bareModuleRewrite": {
-                    "lodash-es": "pikacdn",
                     "/(.+)/": {
                         "type": "umd",
-                        "target": "__deps__.load('$1')"
+                        "target": "__deps__",
+                        "treeshake": {
+                            "out": "./__deps__generated__.js"
+                        }
                     }
                 }
             }

@@ -8,7 +8,7 @@
         "build:tsc": "ttsc -p tsconfig.json"
     },
     "devDependencies": {
-        "@magic-works/ttypescript-browser-like-import-transformer": "latest",
+        "@magic-works/ttypescript-browser-like-import-transformer": "^2",
         "npm-run-all": "latest",
         "ts-node": "latest",
         "ttypescript": "latest",
@@ -16,5 +16,6 @@
         "webpack": "latest",
         "webpack-cli": "latest",
         "webpack-dev-server": "latest"
-    }
+    },
+    "dependencies": {}
 }

@@ -1,5 +1,6 @@
 /es/**/*.js
 /es/**/*.map
+__deps__generated__.js
 
 # Logs
 logs

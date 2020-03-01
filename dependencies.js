@@ -1,28 +1,19 @@
 'use strict'
 
-// @example:
-// In future, you can use syntax: export * as path from 'path'
-export const path = require('path')
-
-// ---------------------------------------------------------------------- //
-//#region Library code
-import * as self from './dependencies.js'
-import { queryWellknownUMD } from '@magic-works/ttypescript-browser-like-import-transformer/es/well-known-umd'
 /**
- * @description Load the Node style library as UMD
- * @param {string} path
+ * If you want to let some dependency load by CDN,
+ * You should add a rule in tsconfig.json before the "default" (/(.+)/) rule.
+ *
+ * Like { "react": "umd" }
  */
-export function load(path) {
-    path = queryWellknownUMD(path) || path
-    const a = self[path]
-    if (a) return a
-    const b = globalThis[path]
-    if (b) return b
-    console.error(`[Missing dependency] ${path}:
-It's recommend to add a UMD minified version of the dependency (https://duckduckgo.com/?q=javascript+library+cdn+${encodeURIComponent(
-        path
-    )} ) to "es/index.html"
-You can also add it to /dependencies.js`)
-    return undefined
+
+const throw_ = () => {
+    throw new Error('Not init yet... Please wait...')
 }
-//#endregion
+module.exports = (def => {
+    try {
+        return require('./__deps__generated__.js').default
+    } catch (e) {
+        return def
+    }
+})(new Proxy({}, { get: throw_ }))
