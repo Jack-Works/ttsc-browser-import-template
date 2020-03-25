@@ -1,21 +1,23 @@
 {
     "scripts": {
-        "start": "run-p start:webpack start:tsc",
-        "build": "run-p build:webpack build:tsc",
-        "start:webpack": "webpack-dev-server --entry ./dependencies.js --watch -d --output-library __deps__ --library-target globalThis --output ./es/dependencies.js --history-api-fallback --content-base ./es/ --watch-content-base --liveReload --open",
-        "build:webpack": "webpack --entry ./dependencies.js -p --output-library __deps__ --library-target globalThis --output ./es/dependencies.js",
-        "start:tsc": "ttsc -p tsconfig.json --watch",
-        "build:tsc": "ttsc -p tsconfig.json"
+        "start": "run-p start:tsc start:webpack",
+        "build": "run-s build:tsc build:webpack",
+        "start:webpack": "webpack-dev-server --watch -d",
+        "build:webpack": "webpack -p",
+        "start:tsc": "ttsc -p ./src/tsconfig.json --watch",
+        "build:tsc": "ttsc -p ./src/tsconfig.json"
     },
     "devDependencies": {
         "@magic-works/ttypescript-browser-like-import-transformer": "^2",
-        "npm-run-all": "latest",
-        "ts-node": "latest",
-        "ttypescript": "latest",
-        "typescript": "latest",
-        "webpack": "latest",
-        "webpack-cli": "latest",
-        "webpack-dev-server": "latest"
+        "@types/webpack": "^4.41.8",
+        "@types/webpack-dev-server": "^3.10.1",
+        "npm-run-all": "^4.1.5",
+        "ts-node": "^8.8.1",
+        "ttypescript": "^1.5.10",
+        "typescript": "^3.8.3",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.10.3"
     },
     "dependencies": {}
 }
